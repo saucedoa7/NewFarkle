@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DieLabel : UILabel
+@interface DieLabel : UILabel{
+
+}
 
 @end

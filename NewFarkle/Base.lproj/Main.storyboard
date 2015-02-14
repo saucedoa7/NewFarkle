@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,10 +15,116 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCL-rr-ycH">
+                                <rect key="frame" x="202" y="100" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kGO-N4-4NP" appends="YES" id="PAx-jD-LMY"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5v-Nz-Klo">
+                                <rect key="frame" x="106" y="196" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gZl-gv-43t" appends="YES" id="YOw-Gf-I9S"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhR-3Z-ajU">
+                                <rect key="frame" x="202" y="196" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L6s-jo-nuC" appends="YES" id="VFt-y3-eDf"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ow-tU-VIA">
+                                <rect key="frame" x="106" y="292" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="G2z-7T-xLF" appends="YES" id="HzI-g4-k2L"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3T-is-Rv0">
+                                <rect key="frame" x="202" y="292" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fkd-km-f46" appends="YES" id="Zmm-qg-6e1"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-0t-lmd">
+                                <rect key="frame" x="106" y="100" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.81176470590000005" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iUK-Oh-zUf" appends="YES" id="muD-KP-gp2"/>
+                                </connections>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="lblDieLabel1" destination="VfQ-0t-lmd" id="th5-Jz-OEe"/>
+                        <outlet property="lblDieLabel2" destination="GCL-rr-ycH" id="f7B-R7-qVp"/>
+                        <outlet property="lblDieLabel3" destination="K5v-Nz-Klo" id="cYc-1Q-GOb"/>
+                        <outlet property="lblDieLabel4" destination="yhR-3Z-ajU" id="1Bq-2B-VKe"/>
+                        <outlet property="lblDieLabel5" destination="9ow-tU-VIA" id="5xE-NB-SI1"/>
+                        <outlet property="lblDieLabel6" destination="l3T-is-Rv0" id="qDG-vS-4VP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kGO-N4-4NP" userLabel="Tap Gesture Rec2">
+                    <connections>
+                        <action selector="onDie2Tapped:" destination="vXZ-lx-hvc" id="RjW-vH-ZD5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="gZl-gv-43t" userLabel="Tap Gesture Rec3">
+                    <connections>
+                        <action selector="onDie3Tapped:" destination="vXZ-lx-hvc" id="UMB-Ki-xmm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="L6s-jo-nuC" userLabel="Tap Gesture Rec4">
+                    <connections>
+                        <action selector="onDie4Tapped:" destination="vXZ-lx-hvc" id="aHK-dy-JHb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="G2z-7T-xLF" userLabel="Tap Gesture Rec5">
+                    <connections>
+                        <action selector="onDie5Tapped:" destination="vXZ-lx-hvc" id="mUC-ID-P8L"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fkd-km-f46" userLabel="Tap Gesture Rec6">
+                    <connections>
+                        <action selector="onDie6Tapped:" destination="vXZ-lx-hvc" id="eB9-XN-vqe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="iUK-Oh-zUf" userLabel="Tap Gesture Rec1">
+                    <connections>
+                        <action selector="onDie1Tapped:" destination="vXZ-lx-hvc" id="LgJ-xO-SqY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>

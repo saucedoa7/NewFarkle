@@ -15,6 +15,7 @@
 		50909FE31A8EDBD000E82AE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50909FE21A8EDBD000E82AE9 /* Images.xcassets */; };
 		50909FE61A8EDBD000E82AE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50909FE41A8EDBD000E82AE9 /* LaunchScreen.xib */; };
 		50909FF21A8EDBD000E82AE9 /* NewFarkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50909FF11A8EDBD000E82AE9 /* NewFarkleTests.m */; };
+		50909FFD1A8EDC0000E82AE9 /* DieLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50909FFC1A8EDC0000E82AE9 /* DieLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		50909FEB1A8EDBD000E82AE9 /* NewFarkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFarkleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50909FF01A8EDBD000E82AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50909FF11A8EDBD000E82AE9 /* NewFarkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFarkleTests.m; sourceTree = "<group>"; };
+		50909FFB1A8EDC0000E82AE9 /* DieLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DieLabel.h; sourceTree = "<group>"; };
+		50909FFC1A8EDC0000E82AE9 /* DieLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DieLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 		50909FC61A8EDBCF00E82AE9 = {
 			isa = PBXGroup;
 			children = (
+				50909FFB1A8EDC0000E82AE9 /* DieLabel.h */,
+				50909FFC1A8EDC0000E82AE9 /* DieLabel.m */,
 				50909FD11A8EDBD000E82AE9 /* NewFarkle */,
 				50909FEE1A8EDBD000E82AE9 /* NewFarkleTests */,
 				50909FD01A8EDBD000E82AE9 /* Products */,
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50909FD81A8EDBD000E82AE9 /* AppDelegate.m in Sources */,
+				50909FFD1A8EDC0000E82AE9 /* DieLabel.m in Sources */,
 				50909FDB1A8EDBD000E82AE9 /* NewFarkle.xcdatamodeld in Sources */,
 				50909FDE1A8EDBD000E82AE9 /* ViewController.m in Sources */,
 				50909FD51A8EDBD000E82AE9 /* main.m in Sources */,
