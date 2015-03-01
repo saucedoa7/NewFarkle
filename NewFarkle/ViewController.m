@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "DieLabel.h"
 
-@interface ViewController ()
+@interface ViewController ()<DieLabelDelegate>
+@property IBOutlet DieLabel *lblDieLabel1;
+@property IBOutlet DieLabel *lblDieLabel2;
+@property IBOutlet DieLabel *lblDieLabel3;
+@property IBOutlet DieLabel *lblDieLabel4;
+@property IBOutlet DieLabel *lblDieLabel5;
+@property IBOutlet DieLabel *lblDieLabel6;
 
 @end
 
@@ -16,79 +23,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    // When the DieLabel becomes the labels delegate the label object runs all the methods in DieLabel.m as its own methods
+
+    self.lblDieLabel1.delegate = self;
+    self.lblDieLabel2.delegate = self;
+    self.lblDieLabel3.delegate = self;
+    self.lblDieLabel4.delegate = self;
+    self.lblDieLabel5.delegate = self;
+    self.lblDieLabel6.delegate = self;
+
+    self.dice = [NSMutableArray new];
 }
 
--(int)roll{
-    int randoNumber = arc4random()%6+1;
-    return randoNumber;
-}
+-(void)didChooseDie:(id)dieLabel{
 
--(IBAction)onDie1Tapped:(id)sender{
-    self.lblDieLabel1.userInteractionEnabled = NO;
-    self.lblDieLabel1.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
-}
-
--(IBAction)onDie2Tapped:(id)sender{
-    self.lblDieLabel2.userInteractionEnabled = NO;
-    self.lblDieLabel2.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
-}
-
--(IBAction)onDie3Tapped:(id)sender{
-    self.lblDieLabel3.userInteractionEnabled = NO;
-    self.lblDieLabel3.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
-}
-
--(IBAction)onDie4Tapped:(id)sender{
-    self.lblDieLabel4.userInteractionEnabled = NO;
-    self.lblDieLabel4.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
-}
-
--(IBAction)onDie5Tapped:(id)sender{
-    self.lblDieLabel5.userInteractionEnabled = NO;
-    self.lblDieLabel5.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
-}
-
--(IBAction)onDie6Tapped:(id)sender{
-    self.lblDieLabel6.userInteractionEnabled = NO;
-    self.lblDieLabel6.backgroundColor = [UIColor colorWithRed:0.22 green:0.3 blue:0.44 alpha:1];
+    self.labelOfDie = dieLabel;
+    [self.dice addObject:self.labelOfDie.text];
+    NSLog(@"SHowing all Dice %@" , self.dice);
 }
 
 - (IBAction)onRollButtonPressed:(id)sender {
 
-    if (self.lblDieLabel1.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel1.text = [NSString stringWithFormat:@"%d", [self roll]];
+    for (DieLabel *label in self.view.subviews) {
+        if ([label isKindOfClass:([DieLabel class])]) {
+            if (label.isUserInteractionEnabled) {
+                [label roll];
+            }
+        }
     }
-
-    if (self.lblDieLabel2.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel2.text = [NSString stringWithFormat:@"%d", [self roll]];
-    }
-    if (self.lblDieLabel3.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel3.text = [NSString stringWithFormat:@"%d", [self roll]];
-    }
-    if (self.lblDieLabel4.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel4.text = [NSString stringWithFormat:@"%d", [self roll]];
-    }
-    if (self.lblDieLabel5.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel5.text = [NSString stringWithFormat:@"%d", [self roll]];
-    }
-    if (self.lblDieLabel6.userInteractionEnabled == NO) {
-
-    } else {
-        self.lblDieLabel6.text = [NSString stringWithFormat:@"%d", [self roll]];
-    }
-
-
 }
 
 @end

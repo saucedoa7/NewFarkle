@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DieLabel : UILabel{
+@protocol DieLabelDelegate
 
-}
+-(void)didChooseDie:(id)dieLabel;
+
+@end
+
+@interface DieLabel : UILabel
+
+-(void)roll;
+
+@property id <DieLabelDelegate> delegate;
 
 @end
