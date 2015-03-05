@@ -88,9 +88,8 @@
 
 
     if ([self.dice isEqualToArray:ones]) {
+        [self.currentPoints addObject:@700];
         [self.dice removeAllObjects];
-        [self.currentPoints removeAllObjects];
-        [self.currentPoints addObject:@1000];
     }
 
     if ([self.dice isEqualToArray:twos]) {
@@ -104,7 +103,8 @@
     }
 
     if ([self.dice isEqualToArray:fives]) {
-        [self.currentPoints addObject:@500];
+        [self.currentPoints addObject:@350];
+        [self.dice removeAllObjects];
     }
 
     if ([self.dice isEqualToArray:sixes]) {

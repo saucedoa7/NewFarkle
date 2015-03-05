@@ -33,7 +33,7 @@
 }
 
 -(void)roll{
-    int randoNumber = 2; //arc4random()%6+1;
+    int randoNumber = arc4random()%6+1;
     NSString *dieNumberLabel = [NSString stringWithFormat:@"%d", randoNumber];
     self.text = dieNumberLabel;
 }
