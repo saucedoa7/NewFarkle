@@ -16,9 +16,12 @@
 @property IBOutlet DieLabel *lblDieLabel4;
 @property IBOutlet DieLabel *lblDieLabel5;
 @property IBOutlet DieLabel *lblDieLabel6;
+@property (strong, nonatomic) IBOutlet UILabel *lblPlayerTwoScore;
+@property (strong, nonatomic) IBOutlet UILabel *lblPlayerOneScore;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrentScore;
-
+@property int playersTurn;
+@property int sumOfSelectedDice;
 @end
 
 @implementation ViewController
@@ -37,6 +40,7 @@
 
     self.dice = [NSMutableArray new];
     self.currentPoints = [NSMutableArray new];
+    self.playersTurn = 1;
 }
 
 - (void)resetLabels {
@@ -111,16 +115,16 @@
         [self.currentPoints addObject:@600];
     }
 
-    int sum = 0;
+    self.sumOfSelectedDice = 0;
     for (NSNumber *n in self.currentPoints) {
-        sum += [n intValue];
-        NSLog(@"Current score is %d", sum);
+        self.sumOfSelectedDice += [n intValue];
+        NSLog(@"Current score is %d", self.sumOfSelectedDice);
     }
 
     NSLog(@"Showing selected Dice %@" , self.dice);
-    NSLog(@"Showing Current Points %d" , sum);
+    NSLog(@"Showing Current Points %d" , self.sumOfSelectedDice);
 
-    self.lblCurrentScore.text = [NSString stringWithFormat:@"%d", sum];
+    self.lblCurrentScore.text = [NSString stringWithFormat:@"%d", self.sumOfSelectedDice];
 
 
     if ([self.dice count] == 6) {
@@ -155,9 +159,22 @@
 
 - (IBAction)onBankPoints:(UIButton *)sender {
 
-    [self movebankButton:sender];
     self.lblCurrentScore.text = @"0";
-    
     [self resetLabels];
+
+    if (self.playersTurn == 1) {
+        NSLog(@"It's P1 turn");
+        [self movebankButton:sender];
+        self.playerOneScore = self.playerOneScore + self.sumOfSelectedDice;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerOneScore];
+        self.playersTurn  = 2;
+    } else if (self.playersTurn == 2){
+        NSLog(@"It's P2 turn");
+        [self movebankButton:sender];
+        self.playerTwoScore = self.playerTwoScore + self.sumOfSelectedDice;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerTwoScore];
+        self.playersTurn  = 1;
+    }
+    
 }
 @end

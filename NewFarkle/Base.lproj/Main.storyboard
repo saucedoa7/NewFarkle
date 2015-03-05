@@ -154,6 +154,8 @@
                         <outlet property="lblDieLabel4" destination="yhR-3Z-ajU" id="vdA-9X-5d1"/>
                         <outlet property="lblDieLabel5" destination="9ow-tU-VIA" id="YQz-X5-qft"/>
                         <outlet property="lblDieLabel6" destination="l3T-is-Rv0" id="QGK-8i-OF1"/>
+                        <outlet property="lblPlayerOneScore" destination="JbK-Wx-13S" id="Pkc-wJ-hwz"/>
+                        <outlet property="lblPlayerTwoScore" destination="dDo-L4-Uol" id="xCu-zg-Nz6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

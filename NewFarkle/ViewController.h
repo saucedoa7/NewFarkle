@@ -16,7 +16,7 @@
 
 @property int currentScore;
 @property int playerOneScore;
-@property int playerTwoSCore;
+@property int playerTwoScore;
 
 @end
 
