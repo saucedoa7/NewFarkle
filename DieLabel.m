@@ -14,12 +14,11 @@
     self = [super initWithCoder:aDecoder];
 
     if (self) {
-        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDieTapped:)];
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(onDieTapped:)];
         [self addGestureRecognizer:tapGes];
     }
-
     return self;
-
 }
 
 -(IBAction)onDieTapped:(UITapGestureRecognizer *)sender{
@@ -34,7 +33,7 @@
 }
 
 -(void)roll{
-    int randoNumber = arc4random()%6+1;
+    int randoNumber = 2; //arc4random()%6+1;
     NSString *dieNumberLabel = [NSString stringWithFormat:@"%d", randoNumber];
     self.text = dieNumberLabel;
 }

@@ -10,6 +10,13 @@
 
 @interface ViewController : UIViewController
 @property NSMutableArray *dice;
+@property NSMutableArray *diceInt;
+@property NSMutableArray *currentPoints;
 @property UILabel *labelOfDie;
+
+@property int currentScore;
+@property int playerOneScore;
+@property int playerTwoSCore;
+
 @end
 

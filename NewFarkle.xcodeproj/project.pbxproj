@@ -422,6 +422,7 @@
 				50909FF71A8EDBD000E82AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50909FF81A8EDBD000E82AE9 /* Build configuration list for PBXNativeTarget "NewFarkleTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				50909FFA1A8EDBD000E82AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
