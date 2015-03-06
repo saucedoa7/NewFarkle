@@ -22,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrentScore;
 @property int playersTurn;
 @property int sumOfSelectedDice;
+@property NSInteger dieCount;
+@property int storedPoints;
+@property (nonatomic)  BOOL diceAreHot;
+@property NSMutableArray *storedNumbers;
+
 @end
 
 @implementation ViewController
@@ -40,19 +45,10 @@
 
     self.dice = [NSMutableArray new];
     self.currentPoints = [NSMutableArray new];
+    self.storedNumbers = [NSMutableArray new];
     self.playersTurn = 1;
-}
+    self.dieCount = 0;
 
-- (void)resetLabels {
-    for (DieLabel *label in self.view.subviews) {
-        if ([label isKindOfClass:([DieLabel class])]) {
-            [self.currentPoints removeAllObjects];
-            [self.dice removeAllObjects];
-            label.text = @"-";
-            label.backgroundColor = [UIColor colorWithRed:0.93 green:0.94 blue:1 alpha:1];
-            label.userInteractionEnabled = YES;
-        }
-    }
 }
 
 -(void)didChooseDie:(id)dieLabel{
@@ -83,13 +79,16 @@
     NSNumber *five = [NSNumber numberWithInteger:5];
 
     if ([self.dice containsObject:one]) {
+        [self.dice removeAllObjects];
+
         [self.currentPoints addObject:@100];
     }
 
     if ([self.dice containsObject:five]) {
+        [self.dice removeAllObjects];
+
         [self.currentPoints addObject:@50];
     }
-
 
     if ([self.dice isEqualToArray:ones]) {
         [self.currentPoints addObject:@700];
@@ -121,21 +120,19 @@
         NSLog(@"Current score is %d", self.sumOfSelectedDice);
     }
 
-    NSLog(@"Showing selected Dice %@" , self.dice);
-    NSLog(@"Showing Current Points %d" , self.sumOfSelectedDice);
+    NSLog(@" Current Stored Points %d" , self.storedPoints);
+    NSLog(@" Selected Dice %@" , self.dice);
+    NSLog(@" Current Points %d" , self.sumOfSelectedDice);
 
     self.lblCurrentScore.text = [NSString stringWithFormat:@"%d", self.sumOfSelectedDice];
 
+    self.dieCount++;
+    NSLog(@"Die Count %ld", (long)self.dieCount);
 
-    if ([self.dice count] == 6) {
-        NSLog(@"Hot DICE!!!");
-        [self resetLabels];
-    }
+    [self diceAreHot];
 }
 
-- (IBAction)onRollButtonPressed:(id)sender {
-    [self.dice removeAllObjects];
-
+- (void)rollDiece {
     for (DieLabel *label in self.view.subviews) {
         if ([label isKindOfClass:([DieLabel class])]) {
             if (label.isUserInteractionEnabled) {
@@ -145,8 +142,51 @@
     }
 }
 
+- (void)resetLabels {
+    for (DieLabel *label in self.view.subviews) {
+        if ([label isKindOfClass:([DieLabel class])]) {
+            //[self.currentPoints removeAllObjects];
+            [self.dice removeAllObjects];
+            label.text = @"-";
+            label.backgroundColor = [UIColor colorWithRed:0.93 green:0.94 blue:1 alpha:1];
+            label.userInteractionEnabled = YES;
+        }
+    }
+}
+
+- (BOOL)diceAreHot {
+    if (self.dieCount == 6) {
+
+        NSNumber *sumOfDice = [NSNumber numberWithInt:self.sumOfSelectedDice];
+        [self.storedNumbers addObject:sumOfDice];
+        NSLog(@"HOT DICE: Stored points %@", self.storedNumbers);
+
+        self.storedPoints = 0;
+        for (NSNumber *n in self.storedNumbers) {
+            self.storedPoints += [n intValue];
+            NSLog(@"HOT DICE: Current score is %d", self.storedPoints );
+        }
+
+        //self.storedPoints = self.storedPoints + self.sumOfSelectedDice;
+        self.lblCurrentScore.text = [NSString stringWithFormat:@"%@", [self.storedNumbers lastObject]];
+
+        self.dieCount = 0;
+        [self resetLabels];
+        [self rollDiece];
+    }
+    return self.diceAreHot = true;
+}
+
+- (IBAction)onRollButtonPressed:(id)sender {
+    [self.dice removeAllObjects];
+
+    [self rollDiece];
+}
+
 - (void)movebankButton:(UIButton *)sender {
     CGRect buttonFrame = sender.frame;
+
+    self.dieCount = 0;
 
     if (buttonFrame.origin.x == 16) {
         buttonFrame.origin.x = 238;
@@ -159,20 +199,21 @@
 
 - (IBAction)onBankPoints:(UIButton *)sender {
 
+    self.currentPoints = 0;
     self.lblCurrentScore.text = @"0";
     [self resetLabels];
 
     if (self.playersTurn == 1) {
         NSLog(@"It's P1 turn");
         [self movebankButton:sender];
-        self.playerOneScore = self.playerOneScore + self.sumOfSelectedDice;
-        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerOneScore];
+        self.playerOneScore = self.playerOneScore + self.storedPoints;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%@", [self.storedNumbers lastObject]];
         self.playersTurn  = 2;
     } else if (self.playersTurn == 2){
         NSLog(@"It's P2 turn");
         [self movebankButton:sender];
-        self.playerTwoScore = self.playerTwoScore + self.sumOfSelectedDice;
-        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerTwoScore];
+        self.playerTwoScore = self.playerTwoScore + self.storedPoints;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.storedPoints];
         self.playersTurn  = 1;
     }
     
