@@ -90,7 +90,6 @@
         [self.currentPoints addObject:@50];
     }
 
-
     if ([self.dice isEqualToArray:ones]) {
         [self.currentPoints addObject:@700];
         [self.dice removeAllObjects];
@@ -150,9 +149,13 @@
 
     if (buttonFrame.origin.x == 16) {
         buttonFrame.origin.x = 238;
+        sender.titleLabel.textColor = [UIColor colorWithRed:0.76 green:0.03 blue:0.07 alpha:1];
+        sender.backgroundColor = [UIColor colorWithRed:0.99 green:0.11 blue:0.23 alpha:1];
         sender.frame = buttonFrame;
-    } else {
+    } else if (buttonFrame.origin.x == 238) {
         buttonFrame.origin.x = 16;
+        sender.titleLabel.textColor = [UIColor colorWithRed:0.05 green:0.29 blue:0.95 alpha:1];
+        sender.backgroundColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
         sender.frame = buttonFrame;
     }
 }
