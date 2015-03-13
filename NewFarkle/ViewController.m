@@ -52,6 +52,8 @@
 }
 
 -(void)didChooseDie:(id)dieLabel{
+
+
     self.labelOfDie = dieLabel;
 
     if ([self.labelOfDie.text isEqualToString:@"1"]) {
@@ -79,20 +81,16 @@
     NSNumber *five = [NSNumber numberWithInteger:5];
 
     if ([self.dice containsObject:one]) {
-        [self.dice removeAllObjects];
-
         [self.currentPoints addObject:@100];
     }
 
     if ([self.dice containsObject:five]) {
-        [self.dice removeAllObjects];
-
         [self.currentPoints addObject:@50];
     }
 
     if ([self.dice isEqualToArray:ones]) {
-        [self.currentPoints addObject:@700];
         [self.dice removeAllObjects];
+        [self.currentPoints addObject:@700];
     }
 
     if ([self.dice isEqualToArray:twos]) {
@@ -106,8 +104,9 @@
     }
 
     if ([self.dice isEqualToArray:fives]) {
-        [self.currentPoints addObject:@350];
         [self.dice removeAllObjects];
+
+        [self.currentPoints addObject:@350];
     }
 
     if ([self.dice isEqualToArray:sixes]) {
@@ -188,34 +187,57 @@
 
     self.dieCount = 0;
 
-    if (buttonFrame.origin.x == 16) {
+    NSLog(@"Frame origin %.1f", buttonFrame.origin.x);
+
+    if (buttonFrame.origin.x == 20) {
         buttonFrame.origin.x = 238;
         sender.frame = buttonFrame;
     } else {
-        buttonFrame.origin.x = 16;
+        buttonFrame.origin.x = 20;
         sender.frame = buttonFrame;
     }
 }
 
 - (IBAction)onBankPoints:(UIButton *)sender {
-
-    self.currentPoints = 0;
     self.lblCurrentScore.text = @"0";
     [self resetLabels];
 
+/*
     if (self.playersTurn == 1) {
         NSLog(@"It's P1 turn");
         [self movebankButton:sender];
-        self.playerOneScore = self.playerOneScore + self.storedPoints;
-        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%@", [self.storedNumbers lastObject]];
+        self.playerOneScore = self.playerOneScore + self.sumOfSelectedDice;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerOneScore];
         self.playersTurn  = 2;
+
     } else if (self.playersTurn == 2){
         NSLog(@"It's P2 turn");
         [self movebankButton:sender];
-        self.playerTwoScore = self.playerTwoScore + self.storedPoints;
-        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.storedPoints];
+        self.playerTwoScore = self.playerTwoScore + self.sumOfSelectedDice;
+        self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerTwoScore];
         self.playersTurn  = 1;
     }
-    
+*/
+
+    switch (self.playersTurn) {
+        case 1:
+            NSLog(@"It's P1 turn");
+            [self movebankButton:sender];
+            self.playerOneScore = self.playerOneScore + self.sumOfSelectedDice;
+            self.lblPlayerOneScore.text = [NSString stringWithFormat:@"%d", self.playerOneScore];
+            self.playersTurn  = 2;
+            break;
+        case 2:
+            NSLog(@"It's P2 turn");
+            [self movebankButton:sender];
+            self.playerTwoScore = self.playerTwoScore + self.sumOfSelectedDice;
+            self.lblPlayerTwoScore.text = [NSString stringWithFormat:@"%d", self.playerTwoScore];
+            self.playersTurn  = 1;
+            break;
+        default:
+            break;
+    }
+    self.sumOfSelectedDice = 0;
+    self.currentPoints = 0;
 }
 @end
