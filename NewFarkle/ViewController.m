@@ -81,18 +81,18 @@
     NSNumber *five = [NSNumber numberWithInteger:5];
 
     if ([self.dice containsObject:one]) {
+        //[self.dice removeAllObjects];
         [self.currentPoints addObject:@100];
     }
-
     if ([self.dice containsObject:five]) {
+        //[self.dice removeAllObjects];
         [self.currentPoints addObject:@50];
     }
-
     if ([self.dice isEqualToArray:ones]) {
         [self.dice removeAllObjects];
+
         [self.currentPoints addObject:@700];
     }
-
     if ([self.dice isEqualToArray:twos]) {
         [self.currentPoints addObject:@200];
     }
@@ -102,13 +102,11 @@
     if ([self.dice isEqualToArray:fours]) {
         [self.currentPoints addObject:@400];
     }
-
     if ([self.dice isEqualToArray:fives]) {
         [self.dice removeAllObjects];
 
         [self.currentPoints addObject:@350];
     }
-
     if ([self.dice isEqualToArray:sixes]) {
         [self.currentPoints addObject:@600];
     }
@@ -166,7 +164,7 @@
             NSLog(@"HOT DICE: Current score is %d", self.storedPoints );
         }
 
-        //self.storedPoints = self.storedPoints + self.sumOfSelectedDice;
+        self.storedPoints = self.storedPoints + self.sumOfSelectedDice;
         self.lblCurrentScore.text = [NSString stringWithFormat:@"%@", [self.storedNumbers lastObject]];
 
         self.dieCount = 0;
